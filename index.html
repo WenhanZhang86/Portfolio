@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom Zhang - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Tom Zhang</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image-container">
+                    <img src="9ca8bd05f5d88c374656e72ae79da84c.jpg" alt="Tom Zhang" class="profile-image" id="profileImage">
+                    <div class="image-placeholder" id="imagePlaceholder">
+                        <span>WZ</span>
+                    </div>
+                </div>
+                <h1 class="hero-title">Hi, I'm <span class="highlight">Tom Zhang</span></h1>
+                <p class="hero-subtitle">Computer Science & Engineering Student</p>
+                <p class="hero-description">Strongly interested in machine learning, autonomous robotics, and other AI-driven internship opportunities.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Strongly interested in machine learning, autonomous robotics, and other AI-driven 
+                        internship opportunities.
+                    </p>
+                    <p>
+                        Bachelor of Science in Computer Science and Engineering at Santa Clara University, 
+                        with hands-on experience in software development, cloud integration, and AI-powered 
+                        applications through internships and hackathon projects.
+                    </p>
+                </div>
+                <div class="about-details">
+                    <div class="detail-card">
+                        <h3>Education</h3>
+                        <p><strong>Santa Clara University</strong></p>
+                        <p>Bachelor of Science in Computer Science and Engineering</p>
+                        <p>Expected Graduation: June 2028</p>
+                        <p>GPA: 3.6</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>Skills &amp; Tools</h3>
+                        <p><strong>Skills:</strong></p>
+                        <div class="skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Assembly</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">PyTorch</span>
+                        </div>
+                        <p><strong>Tools:</strong></p>
+                        <div class="skills">
+                            <span class="skill-tag">Cursor</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Jupyter Notebook</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Summer 2025</div>
+                    <div class="timeline-content">
+                        <h3>Software Developer Intern</h3>
+                        <h4>Resiligence Inc</h4>
+                        <ul>
+                            <li>Developed a cross-platform desktop service that automated system event–driven data capture triggered by system events.</li>
+                            <li>Designed and implemented cloud data integration with Firebase for secure storage and metadata management.</li>
+                            <li>Built a real-time analysis pipeline leveraging OpenAI's API to extract insights from application data.</li>
+                            <li>Applied Electron, Node.js, and Python to ensure robust performance and seamless cross-platform support.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2025 – Dec 2025</div>
+                    <div class="timeline-content">
+                        <h3>Computer Science Teaching Assistant</h3>
+                        <h4>Santa Clara University</h4>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2025 – Dec 2025</div>
+                    <div class="timeline-content">
+                        <h3>Computer Science Grader</h3>
+                        <h4>Santa Clara University</h4>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2026 – Present</div>
+                    <div class="timeline-content">
+                        <h3>Computer Science Tutor</h3>
+                        <h4>Santa Clara University</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-project="1">
+                    <div class="project-image">
+                        <div class="project-placeholder">MP</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Memo Pad - AI-Powered Context Capture Tool</h3>
+                        <p class="project-date">Santa Clara University Hackathon Project | Oct 2025</p>
+                        <p class="project-description">
+                            Built an AI-assisted system to capture and organize contextual information from 
+                            audio and on-screen visuals with user consent. Implemented audio-to-text and 
+                            image-to-text pipelines using AWS AI services, storing structured results in a 
+                            cloud database. Integrated Python-based backend services for data ingestion, 
+                            processing, and retrieval. Enabled automated summarization and question-answering 
+                            over captured data to improve information recall and productivity.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>AWS</span>
+                            <span>Cloud Storage</span>
+                            <span>API Integration</span>
+                        </div>
+                        <button class="project-btn" onclick="showProjectDetails(1)">Learn More</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>Email:</strong>
+                        <a href="mailto:wzhang10@scu.edu">wzhang10@scu.edu</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone:</strong>
+                        <a href="tel:+16693445398">(669) 344-5398</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Location:</strong>
+                        <span>Santa Clara, CA</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>LinkedIn:</strong>
+                        <a href="https://linkedin.com/in/wenhan-zhang-263997331" target="_blank">linkedin.com/in/wenhan-zhang-263997331</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Tom Zhang. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
