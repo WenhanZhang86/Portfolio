@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wenhan Zhang — Portfolio</title>
+<style>
+  :root{
+    --bg:#0b0d12;
+    --bg-alt:#12151c;
+    --card:#161a23;
+    --border:#232733;
+    --text:#e7e9ee;
+    --text-dim:#9aa1b2;
+    --accent:#6ee7c9;
+    --accent-2:#7c9bff;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* nav */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,13,18,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    max-width:920px;margin:0 auto;padding:16px 24px;
+  }
+  .logo{font-weight:700;font-size:1.05rem;letter-spacing:.5px;color:var(--text);}
+  .logo span{color:var(--accent);}
+  .navlinks{display:flex;gap:24px;flex-wrap:wrap;}
+  .navlinks a{color:var(--text-dim);font-size:.92rem;font-weight:500;}
+  .navlinks a:hover{color:var(--accent);text-decoration:none;}
+
+  /* hero */
+  .hero{
+    padding:96px 0 64px;
+    border-bottom:1px solid var(--border);
+  }
+  .eyebrow{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:.8rem;
+    color:var(--accent);
+    background:rgba(110,231,201,0.08);
+    border:1px solid rgba(110,231,201,0.25);
+    padding:4px 10px;
+    border-radius:20px;
+    margin-bottom:20px;
+  }
+  h1{
+    font-size:clamp(2.2rem,6vw,3.4rem);
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-1px;
+  }
+  h1 .accent{
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .subtitle{
+    margin-top:18px;
+    font-size:1.1rem;
+    color:var(--text-dim);
+    max-width:600px;
+  }
+  .contact-row{
+    margin-top:28px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .pill{
+    display:flex;align-items:center;gap:7px;
+    font-size:.88rem;
+    color:var(--text-dim);
+    border:1px solid var(--border);
+    background:var(--card);
+    padding:7px 14px;
+    border-radius:20px;
+  }
+  .pill a{color:var(--text);}
+  .pill a:hover{color:var(--accent);}
+
+  /* sections */
+  section{padding:64px 0;border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+  .section-title{
+    font-family:var(--mono);
+    font-size:.85rem;
+    color:var(--accent-2);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:8px;
+  }
+  .section-heading{
+    font-size:1.7rem;
+    font-weight:700;
+    margin-bottom:32px;
+  }
+
+  /* about */
+  .about-text{color:var(--text-dim);font-size:1.02rem;max-width:680px;}
+  .edu-card{
+    margin-top:28px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px 22px;
+  }
+  .edu-card .row{
+    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;
+  }
+  .edu-card h3{font-size:1.05rem;}
+  .edu-card .date{font-family:var(--mono);font-size:.82rem;color:var(--text-dim);}
+  .edu-card .degree{color:var(--text-dim);font-size:.95rem;margin-top:4px;}
+  .edu-card .gpa{color:var(--accent);font-weight:600;}
+  .edu-card .courses{margin-top:10px;font-size:.88rem;color:var(--text-dim);}
+
+  /* skills */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px;
+  }
+  .skill-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+  }
+  .skill-card h4{
+    font-family:var(--mono);
+    font-size:.8rem;
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:12px;
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-size:.82rem;
+    background:var(--bg-alt);
+    border:1px solid var(--border);
+    color:var(--text-dim);
+    padding:4px 10px;
+    border-radius:6px;
+  }
+
+  /* timeline (experience) */
+  .timeline{position:relative;}
+  .tl-item{
+    position:relative;
+    padding-left:28px;
+    padding-bottom:36px;
+    border-left:2px solid var(--border);
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';
+    position:absolute;
+    left:-7px;top:2px;
+    width:12px;height:12px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 4px var(--bg);
+  }
+  .tl-head{
+    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;
+  }
+  .tl-head h3{font-size:1.08rem;}
+  .tl-date{font-family:var(--mono);font-size:.8rem;color:var(--text-dim);white-space:nowrap;}
+  .tl-role{color:var(--accent-2);font-size:.9rem;font-weight:600;margin-top:2px;}
+  .tl-stack{color:var(--text-dim);font-size:.82rem;font-style:italic;margin-top:2px;}
+  .tl-list{margin-top:10px;padding-left:18px;color:var(--text-dim);font-size:.94rem;}
+  .tl-list li{margin-bottom:6px;}
+
+  /* projects */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+  .project-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:22px;
+    display:flex;flex-direction:column;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .project-card:hover{transform:translateY(-3px);border-color:var(--accent);}
+  .project-card .p-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .project-card h3{font-size:1.05rem;}
+  .project-card .p-date{font-family:var(--mono);font-size:.75rem;color:var(--text-dim);white-space:nowrap;}
+  .project-card .p-stack{color:var(--accent-2);font-size:.8rem;font-weight:600;margin-top:6px;}
+  .project-card ul{margin-top:12px;padding-left:18px;color:var(--text-dim);font-size:.9rem;flex:1;}
+  .project-card li{margin-bottom:6px;}
+  .project-card .p-link{margin-top:14px;font-size:.85rem;font-weight:600;}
+
+  /* leadership */
+  .lead-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px 22px;
+  }
+  .lead-card .row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;}
+  .lead-card h3{font-size:1.05rem;}
+  .lead-card p{color:var(--text-dim);font-size:.94rem;margin-top:8px;}
+
+  /* footer / contact */
+  .contact-cta{
+    text-align:center;
+    padding:80px 0 60px;
+  }
+  .contact-cta h2{font-size:2rem;font-weight:800;margin-bottom:14px;}
+  .contact-cta p{color:var(--text-dim);margin-bottom:28px;}
+  .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    padding:12px 24px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:.92rem;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#0b0d12;
+  }
+  .btn-primary:hover{opacity:.88;text-decoration:none;}
+  .btn-secondary{
+    border:1px solid var(--border);
+    color:var(--text);
+  }
+  .btn-secondary:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+  footer{
+    text-align:center;
+    padding:24px;
+    color:var(--text-dim);
+    font-size:.82rem;
+    border-top:1px solid var(--border);
+  }
+
+  @media (max-width:600px){
+    .navlinks{display:none;}
+    .hero{padding:64px 0 48px;}
+    section{padding:48px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Wenhan<span>.</span>Zhang</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Available — Class of 2028</div>
+    <h1>Wenhan Zhang<br><span class="accent">ML & Software Engineer</span></h1>
+    <p class="subtitle">CS & Engineering student at Santa Clara University, ML concentration. I build LLM agent systems, evaluation pipelines, and local-first AI tools — from desk sensors to RAG search engines.</p>
+    <div class="contact-row">
+      <div class="pill">📍 Santa Clara, CA</div>
+      <div class="pill">📞 (669) 344-5398</div>
+      <div class="pill">✉️ <a href="mailto:tzrockets2017@gmail.com">tzrockets2017@gmail.com</a></div>
+      <div class="pill">🔗 <a href="#" target="_blank">LinkedIn</a></div>
+      <div class="pill">💻 <a href="#" target="_blank">GitHub</a></div>
+      <div class="pill">🌐 <a href="#" target="_blank">Portfolio</a></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-title">// 01</div>
+    <div class="section-heading">About</div>
+    <p class="about-text">I'm a Computer Science and Engineering student pursuing a Machine Learning concentration. My work spans LLM agent evaluation, multimodal retrieval systems, and cross-platform tooling — with hands-on experience at Baidu and Resiligence Inc. I like building things that turn messy, real-world signals (audio, screen, sensors) into structured, searchable, and actionable systems.</p>
+    <div class="edu-card">
+      <div class="row">
+        <h3>Santa Clara University</h3>
+        <span class="date">Expected Jun 2028</span>
+      </div>
+      <div class="degree">B.S. in Computer Science and Engineering, Machine Learning Concentration &nbsp;|&nbsp; GPA: <span class="gpa">3.6</span></div>
+      <div class="courses">Relevant Coursework: Data Structures & Algorithms, Machine Learning, Artificial Intelligence, Linear Algebra, Probability & Statistics, Calculus</div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title">// 02</div>
+    <div class="section-heading">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Languages</h4>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">C</span><span class="tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>AI / ML</h4>
+        <div class="tags">
+          <span class="tag">PyTorch</span><span class="tag">LLM Evaluation</span><span class="tag">RAG</span><span class="tag">FAISS</span><span class="tag">Whisper</span><span class="tag">OCR</span><span class="tag">OpenAI API</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Frameworks & Systems</h4>
+        <div class="tags">
+          <span class="tag">FastAPI</span><span class="tag">SQLite/FTS5</span><span class="tag">MCP</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Electron</span><span class="tag">Node.js</span><span class="tag">Firebase</span><span class="tag">macOS</span><span class="tag">Linux</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-title">// 03</div>
+    <div class="section-heading">Experience</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-head">
+          <h3>Baidu</h3>
+          <span class="tl-date">Summer 2026</span>
+        </div>
+        <div class="tl-role">Machine Learning Engineer Intern</div>
+        <div class="tl-stack">Python · LLM Agents · Evaluation</div>
+        <ul class="tl-list">
+          <li>Designed repeatable evaluation workflows for LLM agents across reasoning, instruction following, and tool use, standardizing benchmark execution and result analysis.</li>
+          <li>Curated benchmark prompts and evaluation datasets; automated batch execution, result aggregation, and report generation in Python.</li>
+          <li>Performed regression testing across model versions and analyzed failure patterns, producing structured reports to support iterative debugging.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head">
+          <h3>Resiligence Inc.</h3>
+          <span class="tl-date">Summer 2025</span>
+        </div>
+        <div class="tl-role">Software Developer Intern</div>
+        <div class="tl-stack">Electron · Node.js · Python · Firebase · OpenAI API</div>
+        <ul class="tl-list">
+          <li>Built a cross-platform desktop event-capture service in Electron, Node.js, and Python to collect and process application events.</li>
+          <li>Integrated Firebase and OpenAI APIs into the event pipeline for cloud persistence and AI-assisted processing.</li>
+          <li>Designed modular interfaces across collection, storage, and inference components to support maintainable extension of the system.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head">
+          <h3>Santa Clara University</h3>
+          <span class="tl-date">Sep 2025 – Present</span>
+        </div>
+        <div class="tl-role">Computer Science Teaching Assistant / Grader / Tutor</div>
+        <ul class="tl-list">
+          <li>Supported students in programming fundamentals and data structures through tutoring and debugging guidance, strengthening problem-solving and software development skills.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title">// 04</div>
+    <div class="section-heading">Projects</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="p-head">
+          <h3>AI Desk Presence</h3>
+          <span class="p-date">Jul 2026</span>
+        </div>
+        <div class="p-stack">Python · ESP32 · SQLite · A2A · macOS</div>
+        <ul>
+          <li>Event-driven Python runtime with a four-state work-session machine, SQLite persistence, daily statistics, and fault-isolated listeners behind one public API.</li>
+          <li>Integrated macOS context capture with a reconnecting ESP32/mmWave USB-serial adapter for presence sensing.</li>
+          <li>Presence-aware A2A 1.0 orchestrator that claims an armed task exactly once on absence, returning a notification, report.md, and artifact.json on return.</li>
+        </ul>
+        <a class="p-link" href="#" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="project-card">
+        <div class="p-head">
+          <h3>AI Agent Harness</h3>
+          <span class="p-date">Jun 2026</span>
+        </div>
+        <div class="p-stack">Python · FastAPI · MCP · RAG</div>
+        <ul>
+          <li>Multi-step LLM agent runtime with schema-based tools, permission enforcement, short-term memory, context retrieval, and 9 provider adapters.</li>
+          <li>Stdio MCP integration, cited local RAG, replayable traces, FastAPI/Docker deployment, and a static debugging dashboard.</li>
+          <li>JSONL evaluation and provider leaderboards measuring task success, tool accuracy, latency, cost, and failure categories.</li>
+        </ul>
+        <a class="p-link" href="#" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="project-card">
+        <div class="p-head">
+          <h3>MindTrace</h3>
+          <span class="p-date">Apr 2026</span>
+        </div>
+        <div class="p-stack">Python · Whisper · OCR · FTS5 · FAISS</div>
+        <ul>
+          <li>Local-first desktop memory assistant capturing audio and screen content into portable JSON sessions and searchable SQLite history.</li>
+          <li>Hybrid retrieval with SQLite FTS5 and FAISS/numpy over 300–600-token chunks, with deduplication, reranking, and token-budgeted context packing.</li>
+          <li>Durable background vector indexing, pre-OCR frame deduplication, sensitive-app exclusion, and Markdown/PDF export.</li>
+        </ul>
+        <a class="p-link" href="#" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <div class="section-title">// 05</div>
+    <div class="section-heading">Leadership</div>
+    <div class="lead-card">
+      <div class="row">
+        <h3>President, Santa Clara University Billiards Club</h3>
+        <span class="date" style="font-family:var(--mono);font-size:.82rem;color:var(--text-dim);">Sep 2025 – Present</span>
+      </div>
+      <p>Planned and organized tournaments introducing students to snooker, American 8-ball, and American 9-ball.</p>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:none;">
+    <div class="contact-cta">
+      <h2>Let's build something together</h2>
+      <p>Open to internship and collaboration opportunities in ML and software engineering.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="mailto:tzrockets2017@gmail.com">Email Me</a>
+        <a class="btn btn-secondary" href="#" target="_blank">LinkedIn</a>
+        <a class="btn btn-secondary" href="#" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Wenhan Zhang. Built with HTML & CSS.
+</footer>
+
+</body>
+</html>
